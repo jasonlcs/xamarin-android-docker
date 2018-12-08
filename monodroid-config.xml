@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<monodroid>
+  <android-sdk path="/android/sdk" />
+  <android-ndk path="/android/ndk-bundle" />
+</monodroid>
