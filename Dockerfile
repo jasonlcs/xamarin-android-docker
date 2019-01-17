@@ -8,7 +8,7 @@ RUN dnf install gnupg wget dnf-plugins-core -y  \
         && dnf install libzip bzip2 bzip2-libs mono-devel mono-complete nuget msbuild referenceassemblies-pcl lynx -y \
         && dnf clean all
 
-RUN dnf install curl unzip java-1.8.0-openjdk-headless java-1.8.0-openjdk-devel -y && \
+RUN dnf install git curl unzip java-1.8.0-openjdk-headless java-1.8.0-openjdk-devel -y && \
     dnf clean all
     
 RUN mkdir -p /android/sdk && \
@@ -35,3 +35,5 @@ ENV ANDROID_SDK_PATH=/android/sdk/
 ENV PATH=/android/xamarin/bin/Release/bin:$PATH
 ENV JAVA_HOME=/usr/lib/jvm/java/
 
+RUN git clone https://github.com/xamarin/jar2xml.git
+RUN cd jar2xml && make all && cp jar2xml.jar /android/xamarin/bin/Release/lib/xamarin.android/xbuild/Xamarin/Android/
